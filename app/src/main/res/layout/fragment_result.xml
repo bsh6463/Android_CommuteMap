@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ResultFragment">
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20sp">
+
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#CCCCFF"
+            android:layout_marginStart="30sp"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="시작" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="10sp"
+            app:cardBackgroundColor="#CDDFF7"
+            android:layout_marginStart="20sp"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="서울역"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/linear1"
+        android:layout_marginTop="20sp">
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#CCCCFF"
+            android:layout_marginStart="30sp"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="경유" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#CDDFF7"
+            app:cardCornerRadius="10sp"
+            android:layout_marginStart="20sp"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="종로"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/linear2">
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#CCCCFF"
+            android:layout_marginStart="30sp"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="도착" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#CDDFF7"
+            app:cardCornerRadius="10sp"
+            android:layout_marginStart="20sp"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="시청역"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_marginTop="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
