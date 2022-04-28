@@ -7,4 +7,40 @@
 
 
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:text="50분"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/distance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:text="1000m"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ListView
+        android:id="@+id/PathListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/info"
+        android:layout_marginTop="30sp"/>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
