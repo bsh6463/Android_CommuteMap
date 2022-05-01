@@ -7,7 +7,9 @@
         <entry key="..\:/Infrearn_android/PathFinder/app/src/main/res/layout/fragment_result.xml" value="0.26992753623188404" />
         <entry key="..\:/Infrearn_android/PathFinder/app/src/main/res/layout/fragment_search.xml" value="0.22" />
         <entry key="..\:/Infrearn_android/PathFinder/app/src/main/res/layout/listview_item.xml" value="0.33" />
+        <entry key="..\:/Infrearn_android/PathFinder/app/src/main/res/layout/path_item.xml" value="0.1609375" />
         <entry key="..\:/Infrearn_android/PathFinder/app/src/main/res/layout/subpath_item.xml" value="0.25769927536231885" />
+        <entry key="..\:/Infrearn_android/PathFinder/app/src/main/res/layout/subpath_listview_item.xml" value="0.23233695652173914" />
       </map>
     </option>
   </component>

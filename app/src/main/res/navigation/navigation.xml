@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.pathfinder.ResultFragment"
+        android:name="com.example.pathfinder.fragment.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.pathfinder.SearchFragment"
+        android:name="com.example.pathfinder.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action

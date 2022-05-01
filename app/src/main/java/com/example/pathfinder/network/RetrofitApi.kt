@@ -1,6 +1,6 @@
 package com.example.pathfinder.network
 
-import com.example.pathfinder.model.JsonResult
+import com.example.pathfinder.model.json.JsonResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

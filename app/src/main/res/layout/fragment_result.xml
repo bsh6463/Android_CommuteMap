@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ResultFragment">
+    tools:context=".fragment.ResultFragment">
 
     <LinearLayout
         android:id="@+id/linear1"
@@ -40,11 +40,12 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/startResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="서울역"
+                android:gravity="center"
                 android:textSize="30sp"
-                android:gravity="center"/>
+                tools:text="서울역" />
 
         </androidx.cardview.widget.CardView>
 
@@ -83,11 +84,12 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/middleResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="종로"
+                android:gravity="center"
                 android:textSize="30sp"
-                android:gravity="center"/>
+                tools:text="공덕역" />
 
         </androidx.cardview.widget.CardView>
 
@@ -129,33 +131,22 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/endResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="시청역"
+                android:gravity="center"
                 android:textSize="30sp"
-                android:gravity="center"/>
+                tools:text="송파역" />
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear3"
-        android:layout_marginTop="20sp"/>
-
-    <TextView
-        android:id="@+id/resultText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/result"
-        android:layout_marginTop="10sp"
-        android:text="result"
-        android:gravity="center"/>
+   <ListView
+       android:id="@+id/pathListView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@id/linear3"
+       android:layout_marginTop="30sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
