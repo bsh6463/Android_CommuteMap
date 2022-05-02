@@ -6,41 +6,71 @@
     android:layout_height="match_parent">
 
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/info"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info_cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/material_dynamic_neutral80"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/time"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="50sp"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/info"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="50분"
-            android:textStyle="bold"/>
+            android:layout_marginLeft="10sp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/distance"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:text="1000m"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50분"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8sp"
+                android:text="1000m"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/startMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/info_cardView"
+        android:layout_marginTop="5sp"
+        android:text="출발지"
+        />
 
     <ListView
-        android:id="@+id/PathListView"
+        android:id="@+id/subPath_listView"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/startMessage"
+        app:layout_constraintBottom_toTopOf="@id/endMessage"
+        android:layout_height="match_parent"
+        android:layout_marginTop="35sp"/>
+
+
+    <TextView
+        android:id="@+id/endMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/info"
-        android:layout_marginTop="30sp"/>
-
-
-
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="5sp"
+        android:text="목적지 도착"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

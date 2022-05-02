@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.pathfinder.R
-import com.example.pathfinder.model.json.Path
 import com.example.pathfinder.model.json.SubPath
 
 class SubPathListViewAdapter(val list: MutableList<SubPath>): BaseAdapter() {
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
-        var convertView = convertView
+
+    override fun getView(position: Int, _convertView: View?, parent: ViewGroup?): View? {
+        var convertView = _convertView
 
         if(convertView == null){
             convertView = LayoutInflater.from(parent?.context).inflate(R.layout.subpath_listview_item, parent,false)
@@ -21,19 +21,20 @@ class SubPathListViewAdapter(val list: MutableList<SubPath>): BaseAdapter() {
         for (subPath in list) {
            when(subPath.trafficType){
                1 -> { //지하철
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName
-                   convertView!!.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
+                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"
+                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
+                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName + "역 하차"
                }
                2 -> {// 버스
                    convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName + "정류장" + subPath.lane?.busNo.toString() + "번 버스 승차"
-                   //convertView!!.findViewById<TextView>(R.id.getOnInfo).text = subPath.lane[0]
-                   convertView!!.findViewById<TextView>(R.id.getOff).text = subPath.endName + "정류장 하차"
-                   convertView!!.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
+                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
+                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName + "정류장 하차"
+                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
                }
 
                3 -> {// 도보
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName
-                   convertView!!.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
+                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString()
+                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
 
                }
 

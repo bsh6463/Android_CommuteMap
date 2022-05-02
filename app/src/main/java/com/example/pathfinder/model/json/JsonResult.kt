@@ -6,5 +6,5 @@ data class JsonResult(
     val end: String?,
 
     val result1: Result1?,
-    val result2: Result2? = null
+    val result2: Result2?
 )
