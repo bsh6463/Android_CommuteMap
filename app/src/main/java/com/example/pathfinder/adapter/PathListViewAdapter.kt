@@ -17,25 +17,26 @@ import kotlin.coroutines.coroutineContext
 class PathListViewAdapter(val list: MutableList<MutableList<Path>>): BaseAdapter() {
     var totalTime = 0
     var totalDistance = 0
-    lateinit var subPathListViewAdapter: SubPathListViewAdapter
+    //lateinit var subPathListViewAdapter: SubPathListViewAdapter
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         var convertView = convertView
-        val subPathListView = convertView?.findViewById<ListView>(R.id.subPath_listView)
 
 
         if(convertView == null){
             convertView = LayoutInflater.from(parent?.context).inflate(R.layout.listview_item, parent,false)
         }
 
+        val subPathListView = convertView?.findViewById<ListView>(R.id.subPath_listView)
 
         list[position].forEach {   path ->
             totalTime += path.totalTime!!
             totalDistance += path.totalDistance!!
 
-            subPathListViewAdapter = SubPathListViewAdapter(path.subPathList as MutableList<SubPath>)
+           var subPathListViewAdapter = SubPathListViewAdapter(path.subPathList as MutableList<SubPath>)
             subPathListView?.adapter = subPathListViewAdapter
+            subPathListViewAdapter.notifyDataSetChanged()
         }
 
 
@@ -45,7 +46,6 @@ class PathListViewAdapter(val list: MutableList<MutableList<Path>>): BaseAdapter
         totalTime = 0
         totalDistance = 0
 
-        subPathListViewAdapter.notifyDataSetChanged()
         return convertView
     }
 

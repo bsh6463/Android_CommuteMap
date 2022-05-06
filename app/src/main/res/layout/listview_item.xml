@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <androidx.cardview.widget.CardView
@@ -61,16 +61,14 @@
         android:id="@+id/subPath_listView"
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/startMessage"
-        app:layout_constraintBottom_toTopOf="@id/endMessage"
-        android:layout_height="match_parent"
-        android:layout_marginTop="35sp"/>
+        android:layout_height="wrap_content" />
 
 
     <TextView
         android:id="@+id/endMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subPath_listView"
         android:layout_marginTop="5sp"
         android:text="목적지 도착"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

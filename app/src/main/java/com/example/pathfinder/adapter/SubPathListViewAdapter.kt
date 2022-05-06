@@ -1,5 +1,6 @@
 package com.example.pathfinder.adapter
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,15 +22,15 @@ class SubPathListViewAdapter(val list: MutableList<SubPath>): BaseAdapter() {
         for (subPath in list) {
            when(subPath.trafficType){
                1 -> { //지하철
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"
+                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString() // + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"
                    convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
-                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName + "역 하차"
+                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName.toString() //+ "역 하차"
                }
                2 -> {// 버스
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName + "정류장" + subPath.lane?.busNo.toString() + "번 버스 승차"
+                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString()//+ "정류장" + subPath.lane?.busNo.toString() + "번 버스 승차"
                    convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
-                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName + "정류장 하차"
-                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
+                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName.toString() //+ "정류장 하차"
+                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() //+ "분 걷기"
                }
 
                3 -> {// 도보
