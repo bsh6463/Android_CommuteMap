@@ -11,6 +11,8 @@ import com.example.pathfinder.model.json.SubPath
 
 class SubPathListViewAdapter(val list: MutableList<SubPath>): BaseAdapter() {
 
+
+
     override fun getView(position: Int, _convertView: View?, parent: ViewGroup?): View? {
         var convertView = _convertView
 
@@ -19,27 +21,26 @@ class SubPathListViewAdapter(val list: MutableList<SubPath>): BaseAdapter() {
         }
 
 
-        for (subPath in list) {
-           when(subPath.trafficType){
-               1 -> { //지하철
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString() // + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"
-                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
-                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName.toString() //+ "역 하차"
-               }
-               2 -> {// 버스
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString()//+ "정류장" + subPath.lane?.busNo.toString() + "번 버스 승차"
-                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
-                   convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName.toString() //+ "정류장 하차"
-                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() //+ "분 걷기"
-               }
+        val subPath: SubPath = list[position]
+        when(subPath.trafficType){
+            1 -> { //지하철
+                convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString() + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"
+                convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
+                convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName + "역 하차"
+            }
+            2 -> {// 버스
+                convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString()+ "정류장" + subPath.lane?.busNo.toString() + "번 버스 승차"
+                convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.arrivalMessage.toString()
+                convertView.findViewById<TextView>(R.id.getOff).text = subPath.endName.toString() + "정류장 하차"
+                convertView.findViewById<TextView>(R.id.getOffInfo).text = subPath.sectionTime.toString() + "분 소요"
+            }
 
-               3 -> {// 도보
-                   convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString()
-                   convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime.toString() + "분 걷기"
+            3 -> {// 도보
+                convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName?:""
+                convertView.findViewById<TextView>(R.id.getOnInfo).text = subPath.sectionTime?.toString() + "분 걷기"
 
-               }
+            }
 
-           }
         }
 
 

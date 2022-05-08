@@ -44,16 +44,14 @@ class ResultFragment : Fragment() {
         val resultStartTextView = view?.findViewById<TextView>(R.id.startResult)
         val resultMiddleTextView = view?.findViewById<TextView>(R.id.middleResult)
         val resultEndTextView = view?.findViewById<TextView>(R.id.endResult)
-        val startMessageTextView = view?.findViewById<TextView>(R.id.startMessage)
-        val endMessageTextView = view?.findViewById<TextView>(R.id.endMessage)
+
 
         //시작, 경유, 도착
         jsonResult.run {
             resultStartTextView?.text = this.start
             resultMiddleTextView?.text = this.middle
             resultEndTextView?.text = this.end
-            startMessageTextView?.text= this.start + "출발"
-            endMessageTextView?.text= this.end + "도착"
+
         }
 
 
@@ -95,8 +93,10 @@ class ResultFragment : Fragment() {
             pathList.add(path1)
         }
 
+
         val pathListViewAdapter = PathListViewAdapter(pathList)
         pathListView.adapter = pathListViewAdapter
+        pathListViewAdapter.notifyDataSetChanged()
         //setListViewHeight(pathListViewAdapter, pathListView)
 
 
