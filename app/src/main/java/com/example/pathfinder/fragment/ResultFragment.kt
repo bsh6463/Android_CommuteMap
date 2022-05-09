@@ -98,7 +98,8 @@ class ResultFragment : Fragment() {
         }
 
 
-        val pathListViewAdapter = PathListViewAdapter(pathList)
+        val pathListViewAdapter = PathListViewAdapter(pathList,
+            jsonResult.start.toString(), jsonResult.middle?.toString(), jsonResult.end.toString())
         pathListView.adapter = pathListViewAdapter
         pathListViewAdapter.notifyDataSetChanged()
         //setListViewHeight(pathListViewAdapter, pathListView)
