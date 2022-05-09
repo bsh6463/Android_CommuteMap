@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.BaseAdapter
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.pathfinder.R
 import com.example.pathfinder.adapter.PathListViewAdapter
 import com.example.pathfinder.adapter.SubPathListViewAdapter
@@ -82,15 +81,20 @@ class ResultFragment : Fragment() {
             pathList.add(path4)
 
         }else{
-            val path1: MutableList<Path> = mutableListOf(
-                jsonResult.result1?.pathList?.get(0) as Path
-            )
-            pathList.add(path1)
+            if(jsonResult.result1 != null){
+                val path1: MutableList<Path> = mutableListOf(
+                    jsonResult.result1?.pathList?.get(0) as Path
+                )
+                pathList.add(path1)
 
-            val path2: MutableList<Path> = mutableListOf(
-                jsonResult.result1?.pathList?.get(1) as Path
-            )
-            pathList.add(path1)
+                val path2: MutableList<Path> = mutableListOf(
+                    jsonResult.result1?.pathList?.get(1) as Path
+                )
+                pathList.add(path1)
+            }else{
+                findNavController().navigate(R.id.action_resultFragment_to_searchFragment)
+                Toast.makeText(requireContext(), "잠시 후 다시 시도하세요", Toast.LENGTH_SHORT ).show()
+            }
         }
 
 

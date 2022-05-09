@@ -21,7 +21,7 @@ class SubPathListViewAdapter(val list: MutableList<SubPath>): BaseAdapter() {
         }
 
 
-        val subPath: SubPath = list[position]
+        var subPath: SubPath = list[position]
         when(subPath.trafficType){
             1 -> { //지하철
                 convertView!!.findViewById<TextView>(R.id.getOn).text = subPath.startName.toString() + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"

@@ -29,7 +29,7 @@ class PathListViewAdapter(val list: MutableList<MutableList<Path>>): BaseAdapter
 
 
         if(convertView == null){
-            convertView = LayoutInflater.from(parent?.context).inflate(R.layout.listview_item, parent,false)
+            convertView = LayoutInflater.from(parent?.context).inflate(R.layout.listview_item2, parent,false)
         }
 
         //startMessageTextView?.text= start + "출발"
@@ -38,12 +38,81 @@ class PathListViewAdapter(val list: MutableList<MutableList<Path>>): BaseAdapter
         val subPathListView = convertView?.findViewById<ListView>(R.id.subPath_listView)
 
         list[position].forEach {   path ->
+            val subPathList = path.subPathList
             totalTime += path.totalTime!!
             totalDistance += path.totalDistance!!
 
+            /*
            var subPathListViewAdapter = SubPathListViewAdapter(path.subPathList as MutableList<SubPath>)
             subPathListView?.adapter = subPathListViewAdapter
-            subPathListViewAdapter.notifyDataSetChanged()
+            subPathListViewAdapter.notifyDataSetChanged()*/
+
+            subPathList?.forEach { subPath->
+
+                val subPathLinearLayout = convertView?.findViewById<LinearLayout>(R.id.subPathLinearLayout)
+
+                when(subPath.trafficType){
+                    1 -> { //지하철
+                        val getOnTextView = TextView(parent?.context).apply {
+                            this.text = subPath.startName.toString() + "역" + subPath.lane!!.name + subPath.updnLine +"탑승"
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+                        val getOnInfoTextView = TextView(parent?.context).apply {
+                            this.text = subPath.arrivalMessage.toString()
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+
+                        val getOffTextView = TextView(parent?.context).apply {
+                            this.text = subPath.endName + "역 하차"
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+
+                    }
+                    2 -> {// 버스
+
+                        val getOnTextView = TextView(parent?.context).apply {
+                            this.text = subPath.startName.toString()+ "정류장" + subPath.lane?.busNo.toString() + "번 버스 승차"
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+                        val getOnInfoTextView = TextView(parent?.context).apply {
+                            this.text = subPath.arrivalMessage.toString()
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+
+                        val getOffTextView = TextView(parent?.context).apply {
+                            this.text =subPath.endName.toString() + "정류장 하차"
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+
+                        val getOffInfoTextView = TextView(parent?.context).apply {
+                            this.text = subPath.sectionTime.toString() + "분 소요"
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+                        }
+                    }
+
+                    3 -> {// 도보
+
+                        val getOnInfoTextView = TextView(parent?.context).apply {
+                            this.text = subPath.sectionTime?.toString() + "분 걷기"
+                            //this.setTextColor(R.color.design_default_color_primary_dark)
+                        }.let {
+                            subPathLinearLayout!!.addView(it)
+
+                        }
+
+                    }
+
+                }
+            }
+
+
 
         }
 
